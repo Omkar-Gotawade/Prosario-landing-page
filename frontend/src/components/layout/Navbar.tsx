@@ -24,8 +24,19 @@ export const Navbar: React.FC = () => {
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const attempt = () => {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Element not in DOM yet (first load) — retry after paint
+        requestAnimationFrame(() => {
+          const retried = document.querySelector(href);
+          if (retried) retried.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    };
+    attempt();
   };
 
   return (
