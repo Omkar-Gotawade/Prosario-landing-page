@@ -8,6 +8,8 @@ import type { WaitlistFormData } from '@/types';
 const ROLES = ['Founder', 'CEO/Co-founder', 'VP Sales', 'Sales Manager', 'SDR / BDR', 'Account Executive', 'B2B Agency Owner', 'Recruiter', 'Consultant', 'Other'];
 const MONTHLY_OUTREACH = ['0–100', '100–500', '500–2000', '2000+'];
 
+const BOOKING_URL = import.meta.env.VITE_BOOKING_URL || "https://calendar.app.google/prosario-15min";
+
 const BENEFITS = [
   'Early access before public launch',
   'Direct access to the founder',
@@ -154,7 +156,7 @@ export const WaitlistSection: React.FC = () => {
                     5–10 conversations will teach us more than 100 anonymous signups. Book a 15-minute call and help shape what we build.
                   </p>
                   <a
-                    href="https://calendar.app.google/prosario-15min"
+                    href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => track('cta_click', { type: 'book_call' })}
@@ -385,7 +387,7 @@ export const WaitlistSection: React.FC = () => {
                           Help shape the future of AI outbound. Book a quick 15-minute call to discuss your biggest outreach challenges.
                         </p>
                         <a
-                          href="https://calendar.app.google/prosario-15min"
+                          href={BOOKING_URL}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold bg-violet-500 text-white hover:bg-violet-400 rounded-xl transition-colors shadow-lg shadow-violet-500/20"
