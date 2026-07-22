@@ -1,4 +1,5 @@
 import logging
+# pyrefly: ignore [missing-import]
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from app.config import settings
 
