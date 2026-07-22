@@ -24,19 +24,15 @@ export const Navbar: React.FC = () => {
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const attempt = () => {
+    // Small delay to let Framer Motion layout animations settle before calculating position
+    setTimeout(() => {
       const el = document.querySelector(href);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        // Element not in DOM yet (first load) — retry after paint
-        requestAnimationFrame(() => {
-          const retried = document.querySelector(href);
-          if (retried) retried.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+        const navbarHeight = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
-    };
-    attempt();
+    }, 50);
   };
 
   return (
