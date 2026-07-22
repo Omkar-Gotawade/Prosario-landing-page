@@ -69,15 +69,6 @@ uvicorn app.main:app --reload --port 8000
 
 Configure your database connection, JWT secret key, email server, and admin login details in `backend/.env`. Refer to the template in `backend/.env.example` for all configurable variables.
 
-## Admin Dashboard
-
-Visit `/admin` on the frontend to access the admin dashboard. Log in using the admin credentials configured in your `backend/.env` file.
-
-Features:
-- Total / today / weekly / beta signups stats
-- Searchable user table
-- Analytics panel (events by type, traffic sources)
-- CSV export
 
 ## API Endpoints
 
