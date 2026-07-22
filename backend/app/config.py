@@ -21,7 +21,7 @@ class Settings(BaseSettings):
 
     ADMIN_EMAIL: str = "founder@prosario.io"
     FRONTEND_URL: str = "http://localhost:5173"
-    CALENDLY_URL: str = "https://calendly.com/prosario/15min"
+    BOOKING_URL: str = "https://calendar.app.google/prosario-15min"
 
     class Config:
         env_file = ".env"

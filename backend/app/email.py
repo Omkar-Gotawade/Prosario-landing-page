@@ -52,7 +52,7 @@ WELCOME_EMAIL_HTML = """
     </ul>
     <p>I'm building Prosario in public. Expect regular updates as we hit milestones.</p>
     <p>Want to talk? Book a quick 15-minute call — your feedback shapes what we build:</p>
-    <a href="{calendly_url}" class="cta">Book a 15-Minute Call →</a>
+    <a href="{booking_url}" class="cta">Book a 15-Minute Call →</a>
     <hr class="divider">
     <p class="footer">You're receiving this because you joined the Prosario waitlist. Reply to this email anytime — I read every message.</p>
   </div>
@@ -83,7 +83,7 @@ async def send_welcome_email(user_name: str, user_email: str) -> None:
             recipients=[user_email],
             body=WELCOME_EMAIL_HTML.format(
                 name=user_name,
-                calendly_url=settings.CALENDLY_URL,
+                booking_url=settings.BOOKING_URL,
             ),
             subtype=MessageType.html,
         )

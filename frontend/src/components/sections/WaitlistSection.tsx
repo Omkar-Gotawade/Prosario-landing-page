@@ -154,7 +154,7 @@ export const WaitlistSection: React.FC = () => {
                     5–10 conversations will teach us more than 100 anonymous signups. Book a 15-minute call and help shape what we build.
                   </p>
                   <a
-                    href="https://calendly.com/prosario/15min"
+                    href="https://calendar.app.google/prosario-15min"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => track('cta_click', { type: 'book_call' })}
@@ -385,7 +385,7 @@ export const WaitlistSection: React.FC = () => {
                           Help shape the future of AI outbound. Book a quick 15-minute call to discuss your biggest outreach challenges.
                         </p>
                         <a
-                          href="https://calendly.com/prosario/15min"
+                          href="https://calendar.app.google/prosario-15min"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold bg-violet-500 text-white hover:bg-violet-400 rounded-xl transition-colors shadow-lg shadow-violet-500/20"
