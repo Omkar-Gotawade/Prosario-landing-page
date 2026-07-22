@@ -67,27 +67,11 @@ uvicorn app.main:app --reload --port 8000
 
 ## Environment Variables (backend/.env)
 
-```env
-DATABASE_URL=postgresql+asyncpg://postgres:password@localhost:5432/prosario
-SECRET_KEY=your-super-secret-key
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=prosario2024
-MAIL_USERNAME=your@email.com
-MAIL_PASSWORD=your-smtp-password
-MAIL_FROM=hello@prosario.io
-MAIL_SERVER=smtp.gmail.com
-ADMIN_EMAIL=founder@prosario.io
-FRONTEND_URL=http://localhost:5173
-CALENDLY_URL=https://calendly.com/your-link/15min
-```
+Configure your database connection, JWT secret key, email server, and admin login details in `backend/.env`. Refer to the template in `backend/.env.example` for all configurable variables.
 
 ## Admin Dashboard
 
-Visit `/admin` on the frontend to access the admin dashboard.
-
-Default credentials (change in `.env`):
-- Username: `admin`
-- Password: `prosario2024`
+Visit `/admin` on the frontend to access the admin dashboard. Log in using the admin credentials configured in your `backend/.env` file.
 
 Features:
 - Total / today / weekly / beta signups stats
