@@ -34,7 +34,13 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Do not use scroll-behavior:smooth here — it conflicts with JS scroll control */
+  scroll-behavior: auto;
+}
+
+/* Offset all anchor sections by navbar height (80px) automatically */
+section[id] {
+  scroll-margin-top: 88px;
 }
 
 body {

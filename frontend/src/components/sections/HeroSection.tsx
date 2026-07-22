@@ -664,13 +664,8 @@ export const HeroSection: React.FC = () => {
   const { track } = useAnalytics();
 
   const scrollTo = (id: string) => {
-    setTimeout(() => {
-      const el = document.querySelector(id);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 50);
+    const el = document.querySelector(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
