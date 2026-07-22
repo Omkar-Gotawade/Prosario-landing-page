@@ -24,8 +24,20 @@ export const Navbar: React.FC = () => {
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const navbarHeight = 80;
+    const doScroll = () => {
+      const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    // Run multiple times as layout animations run to correct any shifts
+    doScroll();
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 300);
+    setTimeout(doScroll, 600);
   };
 
   return (

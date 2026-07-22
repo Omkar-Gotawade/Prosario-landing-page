@@ -664,8 +664,19 @@ export const HeroSection: React.FC = () => {
   const { track } = useAnalytics();
 
   const scrollTo = (id: string) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.querySelector(id);
+    if (!target) return;
+
+    const navbarHeight = 80;
+    const doScroll = () => {
+      const top = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    doScroll();
+    setTimeout(doScroll, 100);
+    setTimeout(doScroll, 300);
+    setTimeout(doScroll, 600);
   };
 
   return (

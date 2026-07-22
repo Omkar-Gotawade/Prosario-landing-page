@@ -16,10 +16,6 @@ const FAQ_ITEMS = [
     answer: `We're targeting a private beta in Q4 2025. Early design partners on the waitlist get first access — typically 2–3 months before anyone else. We'll email you with updates as we hit milestones. You can also book a 15-minute call with the founder to get a personal preview as we get closer.`,
   },
   {
-    question: 'How much will it cost?',
-    answer: `We haven't finalized pricing yet — that will largely be shaped by conversations with early users like you. What we can commit to: early design partners will receive lifetime early-adopter pricing that will never increase, even after public launch. Being early genuinely pays off.`,
-  },
-  {
     question: 'Can I become an early tester?',
     answer: `Yes — that's exactly what the waitlist is for. Early design partners get access before public launch, a direct line to the founder, the ability to influence the roadmap, and lifetime early adopter pricing. We're also actively looking for people who are willing to give honest feedback during beta. Check the beta feedback checkbox when you sign up.`,
   },
@@ -37,13 +33,13 @@ const FAQ_ITEMS = [
   },
 ];
 
-const FAQItem: React.FC<{ item: typeof FAQ_ITEMS[0]; index: number }> = ({ item, index }) => {
+const FAQItem: React.FC<{ item: typeof FAQ_ITEMS[0]; index: number; animateIn: boolean }> = ({ item, index, animateIn }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={animateIn ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
       transition={{ delay: index * 0.07, duration: 0.4 }}
       className="border border-white/[0.06] rounded-2xl overflow-hidden"
     >
@@ -112,13 +108,11 @@ export const FAQSection: React.FC = () => {
           </h2>
         </motion.div>
 
-        {inView && (
-          <div className="space-y-3">
-            {FAQ_ITEMS.map((item, i) => (
-              <FAQItem key={item.question} item={item} index={i} />
-            ))}
-          </div>
-        )}
+        <div className="space-y-3">
+          {FAQ_ITEMS.map((item, i) => (
+            <FAQItem key={item.question} item={item} index={i} animateIn={inView} />
+          ))}
+        </div>
       </div>
     </section>
   );
